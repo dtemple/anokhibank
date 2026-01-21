@@ -1,0 +1,31 @@
+# =====================================================
+# NETLIFY CONFIGURATION
+# =====================================================
+# This file configures how Netlify builds and deploys the app
+
+# Build settings
+[build]
+  # The directory to publish (where your HTML/CSS/JS files are)
+  publish = "."
+  
+  # The directory containing your Netlify Functions
+  functions = "netlify/functions"
+
+# Function settings
+[functions]
+  # Use the included node_modules from the functions folder
+  node_bundler = "esbuild"
+
+# Headers for the site (helps with caching and security)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+# Redirect all function calls properly
+[[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>My Kid Bank</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Screen -->
+    <div id="mainScreen" class="screen active">
+        <div class="header">
+            <h1>💰 Anokhi's Bank</h1>
+        </div>
+
+        <!-- Balance Display -->
+        <div class="balance-card">
+            <div class="balance-label">My Balance</div>
+            <div class="balance-amount" id="balanceDisplay">$0.00</div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions">
+            <button class="btn btn-secondary" id="spendMoneyBtn">
+                💸 Spend Money
+            </button>
+            
+            <button class="btn btn-info" id="viewHistoryBtn">
+                📋 View History
+            </button>
+        </div>
+        
+        <!-- Next Allowance Info -->
+        <div class="next-allowance">
+            <p id="nextAllowanceText">Next allowance: Sunday at 7:00 AM</p>
+        </div>
+    </div>
+
+    <!-- Spend Money Screen -->
+    <div id="spendScreen" class="screen">
+        <div class="header">
+            <button class="back-btn" id="backFromSpend">← Back</button>
+            <h1>Spend Money</h1>
+        </div>
+
+        <div class="form-container">
+            <div class="form-group">
+                <label for="spendAmount">How much did you spend?</label>
+                <div class="input-wrapper">
+                    <span class="currency-symbol">$</span>
+                    <input 
+                        type="number" 
+                        id="spendAmount" 
+                        placeholder="0.00" 
+                        step="0.01" 
+                        min="0.01"
+                        inputmode="decimal">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="spendDescription">What did you buy? (optional)</label>
+                <input 
+                    type="text" 
+                    id="spendDescription" 
+                    placeholder="e.g., Bought a toy"
+                    maxlength="50">
+            </div>
+
+            <button class="btn btn-large btn-danger" id="confirmSpendBtn">
+                ✓ Confirm Spending
+            </button>
+        </div>
+    </div>
+
+    <!-- History Screen -->
+    <div id="historyScreen" class="screen">
+        <div class="header">
+            <button class="back-btn" id="backFromHistory">← Back</button>
+            <h1>Transaction History</h1>
+        </div>
+
+        <div class="history-container" id="historyList">
+            <!-- Transactions will be added here by JavaScript -->
+        </div>
+
+        <div class="empty-state" id="emptyState">
+            <p>📭</p>
+            <p>No transactions yet!</p>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
